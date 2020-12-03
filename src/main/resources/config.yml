@@ -1,0 +1,23 @@
+# Sorry for my eng, it's not my primary language ;)
+
+permissions:
+  group: "hider.{group}"
+  bypass: "hider.bypass"
+
+# Commands that will totally blocked / removed on server (but still available from console)
+# This list ignores op players
+disabled-commands:
+  - op
+  - deop
+
+# Groups
+allowed-commands:
+  default:
+    - about
+  moderator:
+    - ban
+    - kick
+    - mute
+    - warn
+  admin:
+    - ban-ip

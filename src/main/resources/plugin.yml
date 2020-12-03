@@ -1,0 +1,9 @@
+name: Prettier
+version: ${project.version}
+main: me.eereeska.mc.plugins.prettier.Prettier
+api-version: 1.16
+author: "eereeska"
+description: "All-in-one Prettifier Solution"
+commands:
+  prettier:
+    description: "Prettier help & info"
