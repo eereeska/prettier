@@ -1,8 +1,35 @@
-# Sorry for my eng, it's not my primary language ;)
+#
+# Sorry for my eng, it's not my primary language, I'm from Belarus ;)
+# You can report an issue right here: https://github.com/eereeska/prettier/issues
+#
+# I would be very grateful for the donation <3
+# Current goal: Own minecraft account
+# https://www.paypal.me/eereeska
+#
+
+#
+# Please, use '§' symbol for color selection instead of &
+# This is the right way to use colors in Minecraft
+#
+
+#
+# You can use $CHAT: or $AB(ACTIONBAR): to choose where you want to display the message
+# Example: "$CHAT: §cSimple chat message" or "$AB: §cSimple action bar message"
+#
+
+commands:
+  prettier:
+    label: "prettier" #ingame command
+    permission: "prettier.commands.prettier" #permission to use that command
+    no-permission-message: "$CHAT: §8[§5Prettier§8] §cYou don't have permission to use this command" #use 'none' to disable this message"
 
 permissions:
   group: "hider.{group}"
   bypass: "hider.bypass"
+
+# all possible messages outgoing from this plugin
+messages:
+  config-reload-success: "§aConfiguration was successfully reloaded"
 
 # Commands that will totally blocked / removed on server (but still available from console)
 # This list ignores op players
@@ -10,7 +37,9 @@ disabled-commands:
   - op
   - deop
 
-# Groups
+# Commands White List
+# Players wont be able to see the command without permission, but still able to execute them
+# So you can just give to players possible-if-has-permission commands list
 allowed-commands:
   default:
     - about
