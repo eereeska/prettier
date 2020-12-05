@@ -1,9 +1,7 @@
 package me.eereeska.mc.plugins.prettier;
 
 import me.eereeska.mc.plugins.prettier.commands.PrettierCommand;
-import me.eereeska.mc.plugins.prettier.listeners.PlayerCommandPreprocessEventListener;
-import me.eereeska.mc.plugins.prettier.listeners.PlayerCommandSendEventListener;
-import org.bstats.bukkit.Metrics;
+import me.eereeska.mc.plugins.prettier.listeners.PlayerListener;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -11,33 +9,37 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Prettier extends JavaPlugin {
 
+    public static boolean usePlaceholderAPI = false;
+
     @Override
     public void onEnable() {
         saveDefaultConfig();
 
-        // Listeners & TabCompleters
-
         final PluginManager pm = getServer().getPluginManager();
 
-        pm.registerEvents(new PlayerCommandSendEventListener(this), this);
-        pm.registerEvents(new PlayerCommandPreprocessEventListener(this), this);
+        // PAPI
+
+        if (pm.getPlugin("PlaceholderAPI") != null) {
+            usePlaceholderAPI = true;
+            getLogger().info("§bPlaceholderAPI §rwas detected & successfully hooked");
+        } else {
+            getLogger().info("§bPlaceholderAPI §rwasn't detected & won't be supported");
+        }
+
+        // Listeners & TabCompleters
+
+        pm.registerEvents(new PlayerListener(this), this);
 
         // Commands
 
-        getCommand(getConfig().getString("commands.prettier.label", "prettier")).setExecutor(new PrettierCommand(this));
-
-        new Metrics(this, 9548);
+        getCommand("prettier").setExecutor(new PrettierCommand(this));
 
         getLogger().info("§aEnabled");
     }
 
     @Override
     public void onDisable() {
-        if (getServer().isStopping()) {
-            getLogger().info("§cDisabled (server is stopping)");
-        } else {
-            getLogger().info("§cDisabled");
-        }
+        getLogger().info("§cDisabled");
     }
 
     public final void sendMessageFromConfigTo(final CommandSender sender, final String path) {

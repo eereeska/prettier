@@ -19,7 +19,6 @@
 
 commands:
   prettier:
-    label: "prettier" #ingame command
     permission: "prettier.commands.prettier" #permission to use that command
     no-permission-message: "$CHAT: §8[§5Prettier§8] §cYou don't have permission to use this command" #use 'none' to disable this message"
 
@@ -30,6 +29,12 @@ permissions:
 # all possible messages outgoing from this plugin
 messages:
   config-reload-success: "§aConfiguration was successfully reloaded"
+
+# Join & Quit message customization
+# Use 'disable' to disable message editing by Prettier or 'hide' to completely hide the message
+# Plugins supported: PlaceholderAPI
+player-join-message: "§8[§a+§8] §8[§7%vault_prefix%§8] §f%player_name%"
+player-quit-message: "§8[§c-§8] §8[§7%vault_prefix%§8] §f%player_name%"
 
 # Commands that will totally blocked / removed on server (but still available from console)
 # This list ignores op players

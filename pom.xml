@@ -11,7 +11,7 @@
 
     <name>Prettier</name>
 
-    <description>All-in-one Prettifier Solution</description>
+    <description>All-in-one Prettify Solution</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,30 +27,6 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
-                <configuration>
-                    <relocations>
-                        <relocation>
-                            <pattern>org.bstats</pattern>
-                            <shadedPattern>me.eereeska.mc.plugins.prettier</shadedPattern>
-                        </relocation>
-                    </relocations>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
         <resources>
@@ -71,8 +47,8 @@
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
         <repository>
-            <id>CodeMC</id>
-            <url>https://repo.codemc.org/repository/maven-public</url>
+            <id>placeholderapi</id>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
     </repositories>
 
@@ -84,10 +60,10 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
-            <version>1.7</version>
-            <scope>compile</scope>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.10.9</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
