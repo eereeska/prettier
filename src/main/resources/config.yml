@@ -8,7 +8,7 @@
 #
 
 #
-# Please, use '§' symbol for color selection instead of &
+# Please, use '§' symbol for color selection instead of '&'
 # This is the right way to use colors in Minecraft
 #
 
@@ -27,22 +27,19 @@ permissions:
   group: "prettier.commands.allowed.{group}"
   bypass: "prettier.commands.allowed.bypass"
 
-# all possible messages outgoing from this plugin
+# All possible messages outgoing from Prettier
 messages:
   config-reload-success: "§aConfiguration was successfully reloaded"
 
 # Join & Quit message customization
 # Use 'disable' to disable message editing by Prettier or 'hide' to completely hide the message
-# Plugins supported: PlaceholderAPI
+# Placeholders supported: PlaceholderAPI & by default: @world, @player_name, @player_display_name
 player-join-message: "§8[§a+§8] §8[§7%vault_prefix%§8] §f%player_name%"
 player-quit-message: "§8[§c-§8] §8[§7%vault_prefix%§8] §f%player_name%"
 
-# Enabling/Disabling - requires plugin reload (cause chat listener totally disabling)
-# Format label (f.e.: 'local') is using to detect player permission to write in thins chat (you can use your own labels)
 # Format prefix must be unique
 # Range - range value in blocks. Use '-1' for sender-world-broadcast & '-2' for truly-global-broadcast
-# Format plugins supported: PlaceholderAPI
-# Format prettier placeholders supported: @world, @player_name, @player_display_name, @message
+# Placeholders supported: PlaceholderAPI & by default: @world, @player_name, @player_display_name, @message
 chat-format:
   enabled: true
   formats:

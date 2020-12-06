@@ -32,6 +32,12 @@ public class PlayerListener implements Listener {
             return;
         }
 
+        final Player p = e.getPlayer();
+
+        m = m.replaceAll("@player_name", p.getName());
+        m = m.replaceAll("@player_display_ame", p.getDisplayName());
+        m = m.replaceAll("@world", p.getWorld().getName());
+
         if (Prettier.usePlaceholderAPI) {
             m = PlaceholderAPI.setPlaceholders(e.getPlayer(), m);
         }
@@ -49,6 +55,12 @@ public class PlayerListener implements Listener {
             e.setQuitMessage(null);
             return;
         }
+
+        final Player p = e.getPlayer();
+
+        m = m.replaceAll("@player_name", p.getName());
+        m = m.replaceAll("@player_display_ame", p.getDisplayName());
+        m = m.replaceAll("@world", p.getWorld().getName());
 
         if (Prettier.usePlaceholderAPI) {
             m = PlaceholderAPI.setPlaceholders(e.getPlayer(), m);
