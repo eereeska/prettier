@@ -17,6 +17,9 @@
 # Example: "$CHAT: §cSimple chat message" or "$AB: §cSimple action bar message"
 #
 
+# Metrics do not affect performance (Plugin reload required)
+metrics: true
+
 commands:
   prettier:
     permission: "prettier.commands.prettier" #permission to use that command

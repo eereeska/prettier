@@ -34,6 +34,13 @@ public final class Prettier extends JavaPlugin {
 
         getCommand("prettier").setExecutor(new PrettierCommand(this));
 
+        // Metrics
+
+        if (getConfig().getBoolean("metrics", true)) {
+            new Metrics(this, 9548);
+            getLogger().info("§2Metrics §renabled");
+        }
+
         getLogger().info("§aEnabled");
     }
 
