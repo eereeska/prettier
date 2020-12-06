@@ -1,6 +1,7 @@
 package me.eereeska.mc.plugins.prettier;
 
 import me.eereeska.mc.plugins.prettier.commands.PrettierCommand;
+import me.eereeska.mc.plugins.prettier.listeners.ChatListener;
 import me.eereeska.mc.plugins.prettier.listeners.PlayerListener;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -29,17 +30,11 @@ public final class Prettier extends JavaPlugin {
         // Listeners & TabCompleters
 
         pm.registerEvents(new PlayerListener(this), this);
+        pm.registerEvents(new ChatListener(this), this);
 
         // Commands
 
         getCommand("prettier").setExecutor(new PrettierCommand(this));
-
-        // Metrics
-
-        if (getConfig().getBoolean("metrics", true)) {
-            new Metrics(this, 9548);
-            getLogger().info("§2Metrics §renabled");
-        }
 
         getLogger().info("§aEnabled");
     }
@@ -56,10 +51,10 @@ public final class Prettier extends JavaPlugin {
             return;
         }
 
-        if (message.startsWith("%CHAT%")) {
-            sender.sendMessage(message.replaceFirst("%CHAT%", "").trim());
-        } else if (message.startsWith("%AB%") || message.startsWith("%ACTIONBAR%")) {
-            final String m = message.replaceFirst("%AB%", "").replaceFirst("%ACTIONBAR%", "").trim();
+        if (message.startsWith("$CHAT:")) {
+            sender.sendMessage(message.replaceFirst("\\$CHAT:", "").trim());
+        } else if (message.startsWith("$AB:") || message.startsWith("$ACTIONBAR:")) {
+            final String m = message.replaceFirst("\\$AB:", "").replaceFirst("\\$ACTIONBAR:", "").trim();
 
             if (sender instanceof Player) {
                 ((Player) sender).sendActionBar(m);

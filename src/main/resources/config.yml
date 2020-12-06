@@ -13,12 +13,10 @@
 #
 
 #
-# You can use $CHAT: or $AB(ACTIONBAR): to choose where you want to display the message
+# You can use $CHAT: or $AB(ACTIONBAR): to choose where you want to display the message where the Prettier sends any message
 # Example: "$CHAT: §cSimple chat message" or "$AB: §cSimple action bar message"
+# Or, you can use 'none' to disable sending the message
 #
-
-# Metrics do not affect performance (Plugin reload required)
-metrics: true
 
 commands:
   prettier:
@@ -26,8 +24,8 @@ commands:
     no-permission-message: "$CHAT: §8[§5Prettier§8] §cYou don't have permission to use this command" #use 'none' to disable this message"
 
 permissions:
-  group: "hider.{group}"
-  bypass: "hider.bypass"
+  group: "prettier.commands.allowed.{group}"
+  bypass: "prettier.commands.allowed.bypass"
 
 # all possible messages outgoing from this plugin
 messages:
@@ -39,15 +37,41 @@ messages:
 player-join-message: "§8[§a+§8] §8[§7%vault_prefix%§8] §f%player_name%"
 player-quit-message: "§8[§c-§8] §8[§7%vault_prefix%§8] §f%player_name%"
 
-# Commands that will totally blocked / removed on server (but still available from console)
-# This list ignores op players
+# Enabling/Disabling - requires plugin reload (cause chat listener totally disabling)
+# Format label (f.e.: 'local') is using to detect player permission to write in thins chat (you can use your own labels)
+# Format prefix must be unique
+# Range - range value in blocks. Use '-1' for sender-world-broadcast & '-2' for truly-global-broadcast
+# Format plugins supported: PlaceholderAPI
+# Format prettier placeholders supported: @world, @player_name, @player_display_name, @message
+chat-format:
+  enabled: true
+  formats:
+    local:
+      range: 50
+      prefix: ""
+      format: "§8[§7L§8] §f@player_display_name §8» §7@message"
+    global:
+      range: -1
+      prefix: "!"
+      format: "§8[§bG§8] §f@player_display_name §8» §7@message"
+    vip:
+      range: 100
+      prefix: "!v"
+      format: "§8[§6V§8] §f@player_display_name §8» §7@message"
+      # these options are optional (you can remove them or use in other formats)
+      send-permission: "prettier.chat.format.send.vip"
+      send-no-permission: "$AB: §cYou don't have permission to write in the §6VIP §cchat!"
+      receive-permission: "prettier.chat.format.receive.vip"
+
+# Commands that will totally blocked / removed from the server (but still available from console)
 disabled-commands:
   - op
   - deop
+  - pl
 
-# Commands White List
+# Tab-complete commands whitelist
 # Players wont be able to see the command without permission, but still able to execute them
-# So you can just give to players possible-if-has-permission commands list
+# So you can just give to players visible-if-has-permission commands list
 allowed-commands:
   default:
     - about
