@@ -1,41 +1,17 @@
 #
-# Sorry for my eng, it's not my primary language, I'm from Belarus ;)
-# You can report an issue right here: https://github.com/eereeska/prettier/issues
-#
-# I would be very grateful for the donation <3
-# Current goal: Own minecraft account
-# https://www.paypal.me/eereeska
+# Sorry for my eng, it's not my primary language, I'm from the Belarus ;)
+# Report an issue: https://github.com/eereeska/prettier/issues
+# Commands & Permissions: https://github.com/eereeska/prettier/wiki/Commands-&-Permissions
 #
 
-#
-# Please, use '§' symbol for color selection instead of '&'
-# This is the right way to use colors in Minecraft
-#
-
-#
-# You can use $CHAT: or $AB(ACTIONBAR): to choose where you want to display the message where the Prettier sends any message
-# Example: "$CHAT: §cSimple chat message" or "$AB: §cSimple action bar message"
-# Or, you can use 'none' to disable sending the message
-#
-
-commands:
-  prettier:
-    permission: "prettier.commands.prettier" #permission to use that command
-    no-permission-message: "$CHAT: §8[§5Prettier§8] §cYou don't have permission to use this command" #use 'none' to disable this message"
-
-permissions:
-  group: "prettier.commands.allowed.{group}"
-  bypass: "prettier.commands.allowed.bypass"
-
-# All possible messages outgoing from Prettier
-messages:
-  config-reload-success: "§aConfiguration was successfully reloaded"
-
-# Join & Quit message customization
-# Use 'disable' to disable message editing by Prettier or 'hide' to completely hide the message
-# Placeholders supported: PlaceholderAPI & by default: @world, @player_name, @player_display_name
-player-join-message: "§8[§a+§8] §8[§7%vault_prefix%§8] §f%player_name%"
-player-quit-message: "§8[§c-§8] §8[§7%vault_prefix%§8] §f%player_name%"
+# There you can totally enable/disable some parts of Prettier
+modules:
+  betterItemFrames:
+    enable: true
+    visibility:
+      allowEmptyFrames: false
+    fixation:
+      allowEmptyFrames: false
 
 # Format prefix must be unique
 # Range - range value in blocks. Use '-1' for sender-world-broadcast & '-2' for truly-global-broadcast

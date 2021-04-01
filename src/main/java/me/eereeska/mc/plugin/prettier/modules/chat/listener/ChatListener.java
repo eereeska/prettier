@@ -1,7 +1,7 @@
-package me.eereeska.mc.plugins.prettier.listeners;
+package me.eereeska.mc.plugin.prettier.modules.chat.listener;
 
 import me.clip.placeholderapi.PlaceholderAPI;
-import me.eereeska.mc.plugins.prettier.Prettier;
+import me.eereeska.mc.plugin.prettier.Prettier;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -55,7 +55,7 @@ public class ChatListener implements Listener {
         if (plugin.getConfig().contains("chat-format.formats." + formatTitle + ".send-permission")) {
             if (!p.hasPermission(plugin.getConfig().getString("chat-format.formats." + formatTitle + ".send-permission"))) {
                 if (plugin.getConfig().contains("chat-format.formats." + formatTitle + ".send-no-permission")) {
-                    plugin.sendMessageFromConfigTo(p, "chat-format.formats." + formatTitle + ".send-no-permission");
+                    // send msg
                     e.setCancelled(true);
                     return;
                 }

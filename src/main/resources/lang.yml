@@ -1,0 +1,10 @@
+modules:
+  bif:
+    menu: "Menu"
+    visibility: "§fVisibility"
+    visible: "§aVisible"
+    invisible: "§cInvisible"
+    fixation: "§fFixation"
+    fixed: "§aFixed"
+    unfixed: "§cUnfixed"
+    cant-be-empty: "§cItemFrame can't be empty"

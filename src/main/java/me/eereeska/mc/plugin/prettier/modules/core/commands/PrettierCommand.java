@@ -1,6 +1,6 @@
-package me.eereeska.mc.plugins.prettier.commands;
+package me.eereeska.mc.plugin.prettier.modules.core.commands;
 
-import me.eereeska.mc.plugins.prettier.Prettier;
+import me.eereeska.mc.plugin.prettier.Prettier;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -26,7 +26,7 @@ public class PrettierCommand implements CommandExecutor, TabCompleter {
             final Player p = (Player) sender;
 
             if (!p.hasPermission(plugin.getConfig().getString("commands.prettier.permission"))) {
-                plugin.sendMessageFromConfigTo(sender, "commands.prettier.no-permission-message");
+                // send msg
             }
         }
 
@@ -38,7 +38,7 @@ public class PrettierCommand implements CommandExecutor, TabCompleter {
         if (args[0].equalsIgnoreCase("reload")) {
             plugin.saveDefaultConfig();
             plugin.reloadConfig();
-            plugin.sendMessageFromConfigTo(sender, "messages.config-reload-success");
+            // send msg
         }
 
         return true;

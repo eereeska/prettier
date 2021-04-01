@@ -1,7 +1,7 @@
-package me.eereeska.mc.plugins.prettier.listeners;
+package me.eereeska.mc.plugin.prettier.listeners;
 
 import me.clip.placeholderapi.PlaceholderAPI;
-import me.eereeska.mc.plugins.prettier.Prettier;
+import me.eereeska.mc.plugin.prettier.Prettier;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

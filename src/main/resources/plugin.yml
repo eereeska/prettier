@@ -1,13 +1,26 @@
 name: Prettier
 version: ${project.version}
-main: me.eereeska.mc.plugins.prettier.Prettier
+main: me.eereeska.mc.plugin.prettier.Prettier
 api-version: 1.16
-author: "eereeska"
-description: "All-in-one Prettify Solution"
+author: eereeska
+description: All-In-One Beautify Solution
 softdepend:
   - Vault
   - PlaceholderAPI
   - MVdWPlaceholderAPI
+  - WorldGuard
+  - Lands
+  - GriefPrevention
 commands:
   prettier:
-    description: "Prettier help & info"
+permissions:
+  prettier:
+    children:
+      bif:
+        children:
+          use:
+            default: op
+      command:
+        children:
+          reload:
+            default: op
